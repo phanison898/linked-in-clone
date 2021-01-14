@@ -7,7 +7,7 @@ This projects deals with re-building the linked-in application from scratch usin
 ### Technical stack
 
 - Node
-- React + React Hooks
+- React + React hooks
 - Redux
 - Material UI
 - React Spring
