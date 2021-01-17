@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { darkSecondary } from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   header: {
@@ -26,13 +27,16 @@ export default makeStyles((theme) => ({
   },
   search: {
     width: "60%",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
     height: "65%",
     display: "flex",
     alignItems: "center",
     marginLeft: 10,
     padding: "0 10px",
     borderRadius: 3,
-    backgroundColor: "#eef3f8",
+    backgroundColor: theme.palette.type === "dark" ? darkSecondary : "#eef3f8",
     overflow: "hidden",
     "& > input": {
       height: "100%",
@@ -43,6 +47,9 @@ export default makeStyles((theme) => ({
     },
   },
   header__nav: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
     flex: 6,
     height: "100%",
     display: "flex",

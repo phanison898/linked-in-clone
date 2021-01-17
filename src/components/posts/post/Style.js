@@ -9,7 +9,6 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     marginTop: 10,
-    backgroundColor: theme.palette.type === "dark" && darkPrimary,
     [theme.breakpoints.down("xs")]: {
       borderRadius: 0,
     },

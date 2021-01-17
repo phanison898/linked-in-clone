@@ -7,9 +7,11 @@ import Header from "./components/header/Header";
 import Form from "./components/form/Form";
 import Posts from "./components/posts/Posts";
 import Sidebar from "./components/sidebar/Sidebar";
+import Widgets from "./components/widgets/Widgets";
 import { LoginAction, LogoutAction } from "./store/actions/auth";
 import { auth } from "./firebase";
 import Styles from "./Style";
+import { LinkedInBgColor, darkPrimary } from "./assets/Colors";
 
 const App = () => {
   const classes = Styles();
@@ -40,7 +42,11 @@ const App = () => {
       {!displayName ? (
         <Login />
       ) : (
-        <Grid container className={classes.app}>
+        <Grid
+          container
+          className={classes.app}
+          style={{ backgroundColor: mode ? darkPrimary : LinkedInBgColor }}
+        >
           <Grid item container className={classes.app__header}>
             {/* Header */}
             <Header />
@@ -62,8 +68,9 @@ const App = () => {
               </Grid>
             </Grid>
             <Hidden smDown>
-              <Grid item className={classes.body__widgets} md={2}>
+              <Grid item className={classes.body__widgets} md={2.5}>
                 {/* Widgets */}
+                <Widgets />
               </Grid>
             </Hidden>
           </Grid>

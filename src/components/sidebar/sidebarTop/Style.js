@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { LinkedInBlue } from "../../assets/Colors";
+import { LinkedInBlue, LinkedInLightBlue, darkSecondary } from "../../../assets/Colors";
 
 export default makeStyles((theme) => ({
   sidebar: {
@@ -25,6 +25,7 @@ export default makeStyles((theme) => ({
   },
   stats: {
     width: "100%",
+    "& > *": { marginTop: 5 },
   },
   stat: {
     width: "100%",
@@ -34,12 +35,32 @@ export default makeStyles((theme) => ({
     padding: 5,
     cursor: "pointer",
     transition: "all 0.4s ease",
+    "& > h4": {
+      fontSize: 14,
+      fontWeight: 400,
+      color: "grey",
+    },
     "& > p": {
       fontWeight: 600,
-      color: LinkedInBlue,
+      color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
     },
     "&:hover": {
-      backgroundColor: "lightgrey",
+      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+    },
+  },
+  myItems: {
+    width: "100%",
+    height: 50,
+    display: "flex",
+    alignItems: "center",
+    cursor: "pointer",
+    paddingLeft: 10,
+    transition: "all 0.4s ease",
+    "& > h4": {
+      marginLeft: 10,
+    },
+    "&:hover": {
+      backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
   },
 }));

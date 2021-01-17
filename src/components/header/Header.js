@@ -50,6 +50,12 @@ const Header = () => {
         {items.map(({ Icon, title, arrow }, i) => (
           <MenuItem key={i} Icon={Icon} title={title} arrow={arrow} />
         ))}
+        <MenuItem
+          key={"mode"}
+          Icon={mode ? <Brightness4Icon /> : <BrightnessHighIcon />}
+          title={mode ? "Dark" : "Light"}
+          onClick={() => dispatch(ChangeTheme())}
+        />
       </div>
     </Paper>
   );

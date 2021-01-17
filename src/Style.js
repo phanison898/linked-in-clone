@@ -2,48 +2,47 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
   app: {},
+
   app__header: {
+    position: "sticky",
+    top: 0,
+    zIndex: 100,
     height: "7vh",
     display: "flex",
     justifyContent: "center",
   },
+
   app__body: {
-    height: "auto",
+    minHeight: "93vh",
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "lightgrey",
-    backgroundColor: "#fff9f7",
   },
-  body__sidebar: {},
+
+  body__sidebar: {
+    paddingTop: 30,
+  },
+
   body__feed: {
-    width: "100%",
-    height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    overflowY: "scroll",
-    "&::-webkit-scrollbar": {
-      width: 0,
-      background: "transparent",
-    },
-  },
-  feed__form: {
-    width: "100%",
-    padding: "0 20px",
+    padding: 30,
     [theme.breakpoints.down("xs")]: {
       padding: 0,
     },
+  },
+
+  feed__form: {
+    width: "100%",
     height: "auto",
   },
 
   feed__posts: {
     width: "100%",
-    padding: "0 20px",
-    [theme.breakpoints.down("xs")]: {
-      padding: 0,
-    },
     height: "auto",
-    paddingBottom: 10,
   },
-  body__widgets: {},
+
+  body__widgets: {
+    paddingTop: 30,
+  },
 }));
