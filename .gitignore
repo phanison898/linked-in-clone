@@ -4,7 +4,6 @@
 .pnp.js
 
 # firebase
-/src/firebaseConfig.js
 .firebase
 .firebaserc
 firebase.json

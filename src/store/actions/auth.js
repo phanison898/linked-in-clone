@@ -1,11 +1,11 @@
-export const Login = (user) => async (dispatch) => {
+export const LoginAction = (user) => async (dispatch) => {
   dispatch({
     type: "LOGIN",
     payload: user,
   });
 };
 
-export const Logout = () => async (dispatch) => {
+export const LogoutAction = () => async (dispatch) => {
   dispatch({
     type: "LOGOUT",
     payload: {},

@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid, Hidden } from "@material-ui/core";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
-import LoginPage from "./components/login/Login";
+import Login from "./components/login/Login";
 import Header from "./components/header/Header";
-import { Login, Logout } from "./store/actions/auth";
+import Form from "./components/form/Form";
+import Posts from "./components/posts/Posts";
+import Sidebar from "./components/sidebar/Sidebar";
+import { LoginAction, LogoutAction } from "./store/actions/auth";
 import { auth } from "./firebase";
 import Styles from "./Style";
 
@@ -25,9 +28,9 @@ const App = () => {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        dispatch(Login(authUser));
+        dispatch(LoginAction(authUser));
       } else {
-        dispatch(Logout());
+        dispatch(LogoutAction());
       }
     });
   }, []);
@@ -35,7 +38,7 @@ const App = () => {
   return (
     <ThemeProvider theme={muiTheme}>
       {!displayName ? (
-        <LoginPage />
+        <Login />
       ) : (
         <Grid container className={classes.app}>
           <Grid item container className={classes.app__header}>
@@ -46,17 +49,21 @@ const App = () => {
             <Hidden smDown>
               <Grid item className={classes.body__sidebar} md={2}>
                 {/* Sidebar */}
-                sidebar
+                <Sidebar />
               </Grid>
             </Hidden>
             <Grid item className={classes.body__feed} xs={12} sm={8} md={5}>
               {/* Feed */}
-              feed
+              <Grid item className={classes.feed__form}>
+                <Form />
+              </Grid>
+              <Grid item className={classes.feed__posts}>
+                <Posts />
+              </Grid>
             </Grid>
             <Hidden smDown>
               <Grid item className={classes.body__widgets} md={2}>
                 {/* Widgets */}
-                widgets
               </Grid>
             </Hidden>
           </Grid>

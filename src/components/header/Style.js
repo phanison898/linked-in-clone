@@ -26,13 +26,13 @@ export default makeStyles((theme) => ({
   },
   search: {
     width: "60%",
-    height: "60%",
+    height: "65%",
     display: "flex",
     alignItems: "center",
     marginLeft: 10,
     padding: "0 10px",
     borderRadius: 3,
-    backgroundColor: "lightgrey",
+    backgroundColor: "#eef3f8",
     overflow: "hidden",
     "& > input": {
       height: "100%",
@@ -49,31 +49,11 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0 10px",
-  },
-  nav__links: {
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    cursor: "pointer",
-    "&:hover *": {
-      color: "black",
+    "& > div": {
+      flex: 1,
     },
-    "& > h4": {
-      fontSize: 13,
-      display: "flex",
-      alignItems: "center",
-    },
-    "& > .MuiSvgIcon-root": {
-      fontSize: 30,
-      color: "grey",
-      transition: "color 0.4s ease",
-    },
-    "& > .MuiAvatar-root": {
-      marginTop: 7,
-      width: 28,
-      height: 28,
+    "& > div:nth-child(6)": {
+      borderRight: "1px solid lightgrey",
     },
   },
 }));
