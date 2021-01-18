@@ -1,6 +1,4 @@
-import { act } from "react-dom/test-utils";
-
-export default (state = {}, action) => {
+const user = (state = {}, action) => {
   switch (action.type) {
     case "LOGIN":
       return action.payload;
@@ -10,3 +8,5 @@ export default (state = {}, action) => {
       return state;
   }
 };
+
+export default user;

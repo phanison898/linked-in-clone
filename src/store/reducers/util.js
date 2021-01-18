@@ -1,4 +1,4 @@
-export default (state = false, action) => {
+const util = (state = false, action) => {
   switch (action.type) {
     case "THEME":
       return !state;
@@ -6,3 +6,5 @@ export default (state = false, action) => {
       return state;
   }
 };
+
+export default util;

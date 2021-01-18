@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Chip, Paper, Divider, LinearProgress } from "@material-ui/core";
+import { Chip, Paper, LinearProgress } from "@material-ui/core";
+import { useTheme } from "@material-ui/core";
 import imageCompression from "browser-image-compression";
-import BorderColorIcon from "@material-ui/icons/BorderColor";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 import PhotoSizeSelectActualIcon from "@material-ui/icons/PhotoSizeSelectActual";
-import EmojiEmotionsOutlinedIcon from "@material-ui/icons/EmojiEmotionsOutlined";
 import CreateIcon from "@material-ui/icons/Create";
 import firebase from "firebase";
 import { v4 as uuid } from "uuid";
 import db, { storage } from "../../firebase";
-import { LinkedInBlue } from "../../assets/Colors";
+import { LinkedInBlue, LinkedInLightBlue } from "../../assets/Colors";
 import Styles from "./Style";
 
 const Form = () => {
   const classes = Styles();
+  const theme = useTheme();
   const { displayName, photoURL } = useSelector((state) => state.user);
 
   const [uploadData, setUploadData] = useState({
@@ -213,7 +213,9 @@ const Form = () => {
 
       <div className={classes.upload__media}>
         <label htmlFor="upload-image" className={classes.media__options}>
-          <PhotoSizeSelectActualIcon style={{ color: LinkedInBlue }} />
+          <PhotoSizeSelectActualIcon
+            style={{ color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue }}
+          />
           <h4>Photo</h4>
         </label>
         <div className={classes.media__options}>

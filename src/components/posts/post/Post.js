@@ -3,14 +3,10 @@ import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import MoreHorizOutlinedIcon from "@material-ui/icons/MoreHorizOutlined";
 import ThumbUpAltOutlinedIcon from "@material-ui/icons/ThumbUpAltOutlined";
-import ChatBubbleOutlineOutlinedIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import ReplyOutlinedIcon from "@material-ui/icons/ReplyOutlined";
 import FiberManualRecordRoundedIcon from "@material-ui/icons/FiberManualRecordRounded";
 import SendIcon from "@material-ui/icons/Send";
 import CommentOutlinedIcon from "@material-ui/icons/CommentOutlined";
-import EmojiEmotionsIcon from "@material-ui/icons/EmojiEmotions";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ReactPlayer from "react-player";
 import * as images from "../../../assets/images/images";
 import Style from "./Style";
@@ -37,9 +33,21 @@ const Post = forwardRef(
       return (
         <div className={classes.footer__stats}>
           <div>
-            <img src={images.LinkedInLike} style={{ order: `${heartIcontOrder} ` }} />
-            <img src={images.LinkedInLove} style={{ order: `${smileIconOrder} ` }} />
-            <img src={images.LinkedInApplaud} style={{ order: `${thumsUpIconOrder} ` }} />
+            <img
+              src={images.LinkedInLike}
+              alt="linked-in-reaction-1"
+              style={{ order: `${heartIcontOrder} ` }}
+            />
+            <img
+              src={images.LinkedInLove}
+              alt="linked-in-reaction-2"
+              style={{ order: `${smileIconOrder} ` }}
+            />
+            <img
+              src={images.LinkedInApplaud}
+              alt="linked-in-reaction-3"
+              style={{ order: `${thumsUpIconOrder} ` }}
+            />
           </div>
           <h4>{likesCount}</h4>
           <FiberManualRecordRoundedIcon

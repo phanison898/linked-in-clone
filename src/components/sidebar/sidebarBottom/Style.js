@@ -18,13 +18,18 @@ export default makeStyles((theme) => ({
     cursor: "pointer",
     "& > .MuiSvgIcon-root": {
       transition: "all 0.4s ease",
+      color: "grey",
       "&:hover": {
         borderRadius: 999,
-        backgroundColor: "lightgrey",
+        backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
       },
     },
     "& > h4": {
       color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
+      transition: "all 0.4s ease",
+      "&:hover": {
+        textDecoration: "underline",
+      },
     },
   },
   discover__more: {

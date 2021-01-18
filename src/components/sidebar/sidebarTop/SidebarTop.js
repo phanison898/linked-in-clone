@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Paper, Avatar, Divider } from "@material-ui/core";
 import LabelImportantIcon from "@material-ui/icons/LabelImportant";
@@ -7,6 +7,14 @@ import Style from "./Style";
 const SidebarTop = () => {
   const classes = Style();
   const { photoURL, displayName } = useSelector((state) => state.user);
+  const [viewed, setViewed] = useState(1);
+  const [connections, setConnections] = useState(1);
+
+  useEffect(() => {
+    setViewed(Math.floor(Math.random() * 100));
+    setConnections(Math.floor(Math.random() * 1000));
+  }, []);
+
   return (
     <Paper className={classes.sidebar}>
       <div
@@ -21,11 +29,11 @@ const SidebarTop = () => {
         <Divider />
         <div className={classes.stat}>
           <h4>Who viewed your profile</h4>
-          <p>5</p>
+          <p>{viewed}</p>
         </div>
         <div className={classes.stat}>
           <h4>Connections</h4>
-          <p>51</p>
+          <p>{connections}</p>
         </div>
         <Divider />
       </div>

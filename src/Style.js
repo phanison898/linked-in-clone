@@ -35,6 +35,9 @@ export default makeStyles((theme) => ({
   feed__form: {
     width: "100%",
     height: "auto",
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: 10,
+    },
   },
 
   feed__posts: {

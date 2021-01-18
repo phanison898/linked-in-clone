@@ -24,12 +24,12 @@ export default makeStyles((theme) => ({
     "& > img": {
       height: 32,
     },
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
   },
   search: {
     width: "60%",
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-    },
     height: "65%",
     display: "flex",
     alignItems: "center",
@@ -43,7 +43,11 @@ export default makeStyles((theme) => ({
       marginLeft: 5,
       border: 0,
       outlineWidth: 0,
+      color: theme.palette.type === "dark" && "lightgrey",
       backgroundColor: "transparent",
+      "&::placeholder": {
+        color: theme.palette.type === "dark" && "grey",
+      },
     },
   },
   header__nav: {
@@ -61,6 +65,11 @@ export default makeStyles((theme) => ({
     },
     "& > div:nth-child(6)": {
       borderRight: "1px solid lightgrey",
+    },
+    [theme.breakpoints.down("xs")]: {
+      "& > div:nth-child(2n+1)": {
+        display: "none",
+      },
     },
   },
 }));

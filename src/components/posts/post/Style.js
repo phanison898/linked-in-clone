@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { darkPrimary, darkSecondary } from "../../../assets/Colors";
+import { darkSecondary } from "../../../assets/Colors";
 
 export default makeStyles((theme) => ({
   post: {
@@ -29,7 +29,7 @@ export default makeStyles((theme) => ({
       borderRadius: 999,
       transition: "all 0.3s ease",
       "&:hover": {
-        backgroundColor: "lightgrey",
+        backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
       },
     },
   },
@@ -71,7 +71,7 @@ export default makeStyles((theme) => ({
       objectFit: "contain",
       transition: "all 0.5s ease",
       "&:hover": {
-        transform: "scale(1.1)",
+        //transform: "scale(1.1)",
       },
     },
   },

@@ -23,10 +23,6 @@ const Header = () => {
 
   const { photoURL } = useSelector((state) => state.user);
 
-  const Brightness = () => {
-    return mode ? <Brightness4Icon /> : <BrightnessHighIcon />;
-  };
-
   const items = [
     { Icon: <HomeIcon />, title: "Home", arrow: false },
     { Icon: <GroupIcon />, title: "My Network", arrow: false },
