@@ -7,14 +7,14 @@ export default makeStyles((theme) => ({
     position: "sticky",
     top: 0,
     zIndex: 100,
-    height: "7vh",
+    height: 50,
     display: "flex",
     justifyContent: "center",
   },
 
   app__body: {
-    minHeight: "93vh",
     display: "flex",
+    height: "auto",
     justifyContent: "center",
     paddingTop: 50,
     paddingBottom: 50,

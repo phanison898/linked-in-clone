@@ -31,9 +31,10 @@ const Header = () => {
     { Icon: <TelegramIcon />, title: "Messaging", arrow: false },
     { Icon: <NotificationsIcon />, title: "Notifications", arrow: false },
     {
-      Icon: <Avatar src={photoURL} onClick={() => auth.signOut()} />,
+      Icon: <Avatar src={photoURL} />,
       title: "Me",
       arrow: true,
+      onClick: () => auth.signOut(),
     },
     { Icon: <AppsIcon />, title: "Apps", arrow: true },
   ];
@@ -50,8 +51,8 @@ const Header = () => {
           <Avatar src={photoURL} />
         </div>
         <div className={classes.header__nav}>
-          {items.map(({ Icon, title, arrow }, i) => (
-            <MenuItem key={i} Icon={Icon} title={title} arrow={arrow} />
+          {items.map(({ Icon, title, arrow, onClick }, i) => (
+            <MenuItem key={i} Icon={Icon} title={title} arrow={arrow} onClick={onClick} />
           ))}
           <MenuItem
             key={"mode"}
