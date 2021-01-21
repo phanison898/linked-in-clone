@@ -61,7 +61,11 @@ const Header = () => {
             onClick={() => dispatch(ChangeTheme())}
           />
         </div>
-        <Paper elevation={0} className={classes.header__bottom__nav}>
+        <Paper
+          elevation={0}
+          className={classes.header__bottom__nav}
+          style={{ display: window.document.body.scrollHeight }}
+        >
           <HomeIcon />
           <GroupIcon />
           <AddBoxIcon />

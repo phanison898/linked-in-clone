@@ -144,7 +144,7 @@ export default makeStyles((theme) => ({
     "& > .MuiSvgIcon-root": {
       fontSize: 18,
       fontWeight: 500,
-      color: "grey",
+      color: theme.palette.type === "dark" ? "lightgrey" : "grey",
       [theme.breakpoints.down("xs")]: {
         fontSize: 14,
       },
@@ -152,7 +152,7 @@ export default makeStyles((theme) => ({
     "& > h4": {
       fontSize: 12,
       fontWeight: 400,
-      color: "grey",
+      color: theme.palette.type === "dark" ? "lightgrey" : "grey",
       marginLeft: 4,
       [theme.breakpoints.down("xs")]: {
         fontSize: 12,

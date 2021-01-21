@@ -8,6 +8,7 @@ import FiberManualRecordRoundedIcon from "@material-ui/icons/FiberManualRecordRo
 import SendIcon from "@material-ui/icons/Send";
 import CommentOutlinedIcon from "@material-ui/icons/CommentOutlined";
 import ReactPlayer from "react-player";
+import ReactTimeago from "react-timeago";
 import * as images from "../../../assets/images/images";
 import Style from "./Style";
 
@@ -20,6 +21,10 @@ const Post = forwardRef(
     const [heartIcontOrder, setHeartIcontOrder] = useState(1);
     const [smileIconOrder, setSmileIconOrder] = useState(1);
     const [thumsUpIconOrder, setThumsUpIconOrder] = useState(1);
+
+    const capitalize = (_string) => {
+      return _string.charAt(0).toUpperCase() + _string.slice(1);
+    };
 
     useEffect(() => {
       setLikesCount(Math.floor(Math.random() * 1000) + 1);
@@ -63,8 +68,10 @@ const Post = forwardRef(
         <div className={classes.post__header}>
           <Avatar src={profile} />
           <div className={classes.header__info}>
-            <h4>{username}</h4>
-            <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
+            <h4>{capitalize(username)}</h4>
+            <p>
+              <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} />
+            </p>
           </div>
           <MoreHorizOutlinedIcon />
         </div>
