@@ -15,9 +15,9 @@ Building linked-in application clone using **`React`** and **`Firebase`**. The b
 
 ### Preview
 
-<img width="49%" style="margin-right:5px" align="left" src="https://phanison898.github.io/images/other/linked-in-clone.png" />
+<img width="50%"  align="left" src="https://phanison898.github.io/images/other/linked-in-clone.png" />
 
-<img width="49%" style="margin-left:5px" src="https://phanison898.github.io/images/other/linked-in-clone-dark.png" />
+<img width="50%" src="https://phanison898.github.io/images/other/linked-in-clone-dark.png" />
 
 ---
 
