@@ -47,7 +47,6 @@ export default makeStyles((theme) => ({
     },
     "& > p": {
       fontSize: 12,
-      fontWeight: 400,
       fontWeight: 600,
       color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
     },

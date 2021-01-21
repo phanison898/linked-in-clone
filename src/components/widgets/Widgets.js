@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Paper } from "@material-ui/core";
-import { useTheme } from "@material-ui/core";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import ErrorOutlineSharpIcon from "@material-ui/icons/ErrorOutlineSharp";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -10,13 +9,12 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import HeaderInfo from "../../components/util/HeadLine";
-import { LinkedInBlue, LinkedInLightBlue } from "../../assets/Colors";
+import { LinkedInLightBlue } from "../../assets/Colors";
 import { LinkedInJobAdd } from "../../assets/images/images";
 import Style from "./Style";
 
 const Widgets = () => {
   const classes = Style();
-  const theme = useTheme();
   const [expand, setExpand] = useState(false);
 
   return (

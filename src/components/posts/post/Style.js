@@ -79,6 +79,9 @@ export default makeStyles((theme) => ({
         //transform: "scale(1.1)",
       },
     },
+    "& > div": {
+      height: "auto",
+    },
   },
   post__footer: {
     width: "100%",

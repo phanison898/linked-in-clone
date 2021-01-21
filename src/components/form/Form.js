@@ -98,22 +98,47 @@ const Form = () => {
     return fileName;
   };
 
-  const imageUploadHandler = async (e) => {
+  const imageUploadHandler = async (e, type) => {
     const inputFile = e.target.files[0];
-    const inputFileType = inputFile.type.split("/")[0];
+    const _inputFile = inputFile.type.split("/");
+    const inputFileType = _inputFile[0];
+    const inputFileExec = _inputFile[1];
     const inputFileName = fileNameCompressor(inputFile.name, 20);
 
     const fileSize = inputFile.size / (1024 * 1024);
 
-    switch (inputFileType) {
+    const acceptedImageFormats = ["png", "jpg", "jpeg", "gif"];
+    const acceptedVideoFormats = ["mp4", "mkv", "3gp", "av", "webm"];
+
+    switch (type) {
       case "video":
-        if (fileSize > 25) return alert("Select a video less than 25MB size");
+        if (!acceptedVideoFormats.some((format) => format.includes(inputFileExec))) {
+          alert(" Please select video format of mp4 , mkv , av ");
+          e.target.value = "";
+          return;
+        }
+        if (fileSize > 25) {
+          alert("Select a video less than 25MB size");
+          e.target.value = "";
+          return;
+        }
         break;
       case "image":
-        if (fileSize > 3) return alert("select an image less than 3MB size");
+        if (!acceptedImageFormats.some((format) => format.includes(inputFileExec))) {
+          alert(" Please select image format of png , jpg , jpeg , gif ");
+          e.target.value = "";
+          return;
+        }
+        if (fileSize > 3) {
+          alert("select an image less than 3MB size");
+          e.target.value = "";
+          return;
+        }
         break;
       default:
-        break;
+        alert("Invalid file format...");
+        e.target.value = "";
+        return;
     }
 
     let compressedInputFile = inputFile;
@@ -178,9 +203,18 @@ const Form = () => {
           <input
             id="upload-image"
             type="file"
-            accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
+            //accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
+            accept="image/*"
             hidden
-            onChange={imageUploadHandler}
+            onChange={(e) => imageUploadHandler(e, "image")}
+          />
+          <input
+            id="upload-video"
+            type="file"
+            //accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
+            accept="video/*"
+            hidden
+            onChange={(e) => imageUploadHandler(e, "video")}
           />
           <button type="submit">Post</button>
         </form>
@@ -218,10 +252,10 @@ const Form = () => {
           />
           <h4>Photo</h4>
         </label>
-        <div className={classes.media__options}>
+        <label htmlFor="upload-video" className={classes.media__options}>
           <YouTubeIcon style={{ color: "orange" }} />
           <h4>Video</h4>
-        </div>
+        </label>
         <div className={classes.media__options}>
           <AssignmentTurnedInIcon style={{ color: "#cea2cc" }} />
           <h4>Goal</h4>

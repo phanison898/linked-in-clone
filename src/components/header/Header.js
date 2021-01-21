@@ -19,7 +19,6 @@ import { auth } from "../../firebase";
 
 const Header = () => {
   const classes = Style();
-
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.util);
 

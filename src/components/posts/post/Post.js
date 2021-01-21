@@ -77,7 +77,7 @@ const Post = forwardRef(
               {fileType === "image" ? (
                 <img src={fileData} alt="post" />
               ) : (
-                <ReactPlayer url={fileData} controls={true} />
+                <ReactPlayer url={fileData} controls={true} style={{ height: "auto !important" }} />
               )}
             </div>
           )}

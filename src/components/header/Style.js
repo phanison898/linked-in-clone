@@ -83,21 +83,20 @@ export default makeStyles((theme) => ({
   header__bottom__nav: {
     display: "none",
     borderRadius: 0,
-    boxShadow: "none",
     boxShadow: "0px -3px 5px -5px rgba(0,0,0,0.75)",
     [theme.breakpoints.down("xs")]: {
       position: "fixed",
       bottom: 0,
       width: "100%",
-      height: 40,
+      height: 50,
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
       padding: "0 10px",
-      cursor: "pointer",
       "& > .MuiSvgIcon-root": {
         fontSize: 24,
         color: "grey",
+        cursor: "pointer",
       },
     },
   },

@@ -19,14 +19,22 @@ const Posts = () => {
     <div className={classes.posts}>
       <FlipMove style={{ width: "100%" }}>
         {Array.from(posts).map((post) => (
-          <Post key={post.id} profile={post.data.profile} username={post.data.username} timestamp={post.data.timestamp} description={post.data.description} fileType={post.data.fileType} fileData={post.data.fileData} />
+          <Post
+            key={post.id}
+            profile={post.data.profile}
+            username={post.data.username}
+            timestamp={post.data.timestamp}
+            description={post.data.description}
+            fileType={post.data.fileType}
+            fileData={post.data.fileData}
+          />
         ))}
       </FlipMove>
     </div>
   );
 };
 
-const Style = makeStyles((theme) => ({
+const Style = makeStyles(() => ({
   posts: {
     width: "100%",
     height: "100%",
