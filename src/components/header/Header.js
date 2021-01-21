@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { ChangeTheme } from "../../store/actions/util";
 import Logo from "../../assets/images/logo.png";
-import { Paper, Avatar } from "@material-ui/core";
+import { Paper, Avatar, Tooltip } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import HomeIcon from "@material-ui/icons/Home";
 import GroupIcon from "@material-ui/icons/Group";
@@ -31,7 +31,11 @@ const Header = () => {
     { Icon: <TelegramIcon />, title: "Messaging", arrow: false },
     { Icon: <NotificationsIcon />, title: "Notifications", arrow: false },
     {
-      Icon: <Avatar src={photoURL} />,
+      Icon: (
+        <Tooltip title="Sign-Out" arrow>
+          <Avatar src={photoURL} />
+        </Tooltip>
+      ),
       title: "Me",
       arrow: true,
       onClick: () => auth.signOut(),

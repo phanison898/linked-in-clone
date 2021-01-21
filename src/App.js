@@ -15,6 +15,7 @@ import { LinkedInBgColor, darkPrimary } from "./assets/Colors";
 
 const App = () => {
   const classes = Styles();
+
   const dispatch = useDispatch();
 
   const { displayName } = useSelector((state) => state.user);
@@ -47,7 +48,14 @@ const App = () => {
           className={classes.app}
           style={{ backgroundColor: mode ? darkPrimary : LinkedInBgColor }}
         >
-          <Grid item container className={classes.app__header}>
+          <Grid
+            item
+            container
+            className={classes.app__header}
+            style={{
+              boxShadow: mode && "0px 5px 10px -10px rgba(0,0,0,0.75)",
+            }}
+          >
             {/* Header */}
             <Header />
           </Grid>
