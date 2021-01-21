@@ -68,7 +68,7 @@ const App = () => {
               </Grid>
             </Grid>
             <Hidden smDown>
-              <Grid item className={classes.body__widgets} md={2.5}>
+              <Grid item className={classes.body__widgets} md={3}>
                 {/* Widgets */}
                 <Widgets />
               </Grid>

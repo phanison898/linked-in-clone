@@ -5,6 +5,7 @@ import SidebarBottom from "./sidebarBottom/SidebarBottom";
 
 const Style = makeStyles((theme) => ({
   sidebar: {
+    height: "100%",
     display: "flex",
     flexDirection: "column",
   },

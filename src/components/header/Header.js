@@ -10,6 +10,8 @@ import TelegramIcon from "@material-ui/icons/Telegram";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import AddBoxIcon from "@material-ui/icons/AddBox";
 import AppsIcon from "@material-ui/icons/Apps";
 import MenuItem from "./menuItem/MenuItem";
 import Style from "./Style";
@@ -41,6 +43,7 @@ const Header = () => {
           <SearchIcon />
           <input placeholder="Search" />
         </div>
+        <Avatar src={photoURL} />
       </div>
       <div className={classes.header__nav}>
         {items.map(({ Icon, title, arrow }, i) => (
@@ -53,6 +56,17 @@ const Header = () => {
           onClick={() => dispatch(ChangeTheme())}
         />
       </div>
+      <Paper elevation={0} className={classes.header__bottom__nav}>
+        <HomeIcon />
+        <GroupIcon />
+        <AddBoxIcon />
+        {mode ? (
+          <Brightness4Icon onClick={() => dispatch(ChangeTheme())} />
+        ) : (
+          <BrightnessHighIcon onClick={() => dispatch(ChangeTheme())} />
+        )}
+        <ExitToAppIcon onClick={() => auth.signOut()} />
+      </Paper>
     </Paper>
   );
 };

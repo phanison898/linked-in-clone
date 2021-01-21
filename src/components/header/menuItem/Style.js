@@ -11,14 +11,14 @@ export default makeStyles((theme) => ({
     transition: "all 0.5s ease",
     "& > .MuiSvgIcon-root": {
       [theme.breakpoints.down("sm")]: {
-        fontSize: 24,
+        fontSize: 28,
       },
       fontSize: 30,
     },
     "& > .MuiAvatar-root": {
       [theme.breakpoints.down("sm")]: {
-        width: 20,
-        height: 20,
+        width: 24,
+        height: 24,
       },
       width: 25,
       height: 25,

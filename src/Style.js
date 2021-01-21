@@ -16,18 +16,29 @@ export default makeStyles((theme) => ({
     minHeight: "93vh",
     display: "flex",
     justifyContent: "center",
+    paddingTop: 50,
+    paddingBottom: 50,
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: 10,
+      paddingBottom: 40,
+    },
   },
 
   body__sidebar: {
-    paddingTop: 30,
+    minWidth: 150,
+    maxWidth: 220,
+    height: "auto",
   },
 
   body__feed: {
+    minWidth: 500,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: 30,
+    padding: "0 25px",
+    paddingBottom: 25,
     [theme.breakpoints.down("xs")]: {
+      minWidth: 0,
       padding: 0,
     },
   },
@@ -35,9 +46,6 @@ export default makeStyles((theme) => ({
   feed__form: {
     width: "100%",
     height: "auto",
-    [theme.breakpoints.down("xs")]: {
-      paddingTop: 10,
-    },
   },
 
   feed__posts: {
@@ -46,6 +54,7 @@ export default makeStyles((theme) => ({
   },
 
   body__widgets: {
-    paddingTop: 30,
+    minWidth: 225,
+    maxWidth: 300,
   },
 }));

@@ -1,6 +1,6 @@
 export const LinkedInBlue = "#0073b1";
 
-export const LinkedInLightBlue = "#008edb";
+export const LinkedInLightBlue = "#70b5f9";
 
 export const LinkedInBgColor = "#f3f2ef";
 

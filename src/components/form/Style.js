@@ -11,6 +11,8 @@ export default makeStyles((theme) => ({
     borderRadius: 7,
     [theme.breakpoints.down("xs")]: {
       borderRadius: 0,
+      border: 0,
+      boxShadow: "none",
     },
   },
 
@@ -18,12 +20,15 @@ export default makeStyles((theme) => ({
     height: "auto",
     display: "flex",
     alignItems: "center",
-    padding: "10px 0 5px 0",
+    padding: "15px 0 5px 0",
   },
 
   header__form: {
     flex: 1,
-    height: "50px",
+    height: 47,
+    [theme.breakpoints.down("xs")]: {
+      height: 42,
+    },
     display: "flex",
     alignItems: "center",
     borderRadius: 999,
@@ -94,7 +99,10 @@ export default makeStyles((theme) => ({
   },
 
   upload__media: {
-    height: "50px",
+    height: 50,
+    [theme.breakpoints.down("xs")]: {
+      height: 40,
+    },
     display: "flex",
     alignItems: "center",
     padding: "2px 0",
@@ -114,6 +122,7 @@ export default makeStyles((theme) => ({
       backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     },
     "& > h4": {
+      fontSize: 14,
       fontWeight: 400,
       marginLeft: 10,
       [theme.breakpoints.down("md")]: {

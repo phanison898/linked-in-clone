@@ -8,7 +8,7 @@ const HeadLine = ({ Icon, title, time, count }) => {
     headLine: {
       display: "flex",
       flexDirection: "column",
-      padding: "5px 10px",
+      padding: time ? "5px 10px" : "0px 10px",
       cursor: "pointer",
       transition: "all 0.4s ease",
       "&:hover": {
@@ -18,11 +18,17 @@ const HeadLine = ({ Icon, title, time, count }) => {
     top: {
       display: "flex",
       alignItems: "center",
+      "& > h3": {
+        fontSize: 16,
+      },
       "& > h4": {
         marginLeft: 10,
-        fontSize: 14,
+        fontSize: time ? 14 : 13,
         fontWeight: time ? 500 : 400,
         color: !time && "grey",
+      },
+      "& > .MuiSvgIcon-root": {
+        fontSize: 18,
       },
     },
     bottom: {

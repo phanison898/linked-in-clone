@@ -3,6 +3,7 @@ import { LinkedInBlue, LinkedInLightBlue, darkSecondary, darkPrimary } from "../
 
 export default makeStyles((theme) => ({
   widgets: {
+    height: "100%",
     display: "flex",
     flexDirection: "column",
   },
@@ -17,7 +18,6 @@ export default makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "20px 15px",
-    transition: "all 0.4s ease",
     "& > h4": {
       fontSize: 15,
       fontWeight: 600,
@@ -45,9 +45,13 @@ export default makeStyles((theme) => ({
     },
   },
   widgets__bottom: {
+    position: "sticky",
+    top: "8vh",
+    marginTop: 10,
+  },
+  addBanner: {
     width: "100%",
     display: "flex",
-    marginTop: 10,
     padding: 5,
     borderRadius: 10,
     overFlow: "hidden",
@@ -58,17 +62,19 @@ export default makeStyles((theme) => ({
       cursor: "pointer",
     },
   },
-  about__author: {
+  about: {
     display: "flex",
     flexDirection: "column",
-    padding: 10,
+    alignItems: "center",
+    padding: 15,
     "& > h4": {
       color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
     },
     "& > div": {
       flex: 1,
+      width: "100%",
       display: "flex",
-      justifyContent: "space-between",
+      justifyContent: "space-evenly",
       alignItems: "center",
       marginTop: 10,
       "& > a": {

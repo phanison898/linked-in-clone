@@ -32,7 +32,7 @@ const Widgets = () => {
             Icon={
               <FiberManualRecordIcon
                 style={{
-                  color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
+                  color: LinkedInLightBlue,
                   fontSize: 12,
                 }}
               />
@@ -46,7 +46,7 @@ const Widgets = () => {
           top_2.map((title, i) => (
             <HeaderInfo
               key={`widgets-top_2_${i}`}
-              Icon={<FiberManualRecordIcon style={{ color: LinkedInBlue, fontSize: 12 }} />}
+              Icon={<FiberManualRecordIcon style={{ color: LinkedInLightBlue, fontSize: 12 }} />}
               title={title}
               time={true}
               count={true}
@@ -57,18 +57,20 @@ const Widgets = () => {
           <ExpandMoreIcon style={{ transform: expand ? "rotate(180deg)" : "" }} />
         </div>
       </Paper>
-      <Paper className={classes.widgets__bottom}>
-        <img src={LinkedInJobAdd} alt="linked-in-jub-add" />
-      </Paper>
-      {/* About Author */}
-      <div className={classes.about__author}>
-        <h4>Contact Developer</h4>
-        <div>
-          {author.map(({ src, url }, i) => (
-            <a href={`${url}`} key={`author-link-${i}`} rel="noreferrer nofollow" target="_blank">
-              {src}
-            </a>
-          ))}
+      <div className={classes.widgets__bottom}>
+        <Paper className={classes.addBanner}>
+          <img src={LinkedInJobAdd} alt="linked-in-jub-add" />
+        </Paper>
+        {/* About Author */}
+        <div className={classes.about}>
+          <h4>Author Info</h4>
+          <div>
+            {author.map(({ src, url }, i) => (
+              <a href={`${url}`} key={`author-link-${i}`} rel="noreferrer nofollow" target="_blank">
+                {src}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>

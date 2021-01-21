@@ -228,7 +228,7 @@ const Form = () => {
         </div>
         <div className={classes.media__options}>
           <CalendarViewDayIcon style={{ color: "#f5987e" }} />
-          <h4>Article</h4>
+          <h4>Write article</h4>
         </div>
       </div>
     </Paper>

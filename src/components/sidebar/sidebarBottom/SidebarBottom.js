@@ -9,7 +9,7 @@ import Style from "./Style";
 const SidebarBottom = () => {
   const classes = Style();
   const [recent, setRecent] = useState(true);
-  const [groups, setGroups] = useState(false);
+  const [groups, setGroups] = useState(true);
   const [hashTags, setHashTags] = useState(false);
 
   return (
@@ -79,12 +79,10 @@ const SidebarBottom = () => {
 const sectionRecent = ["node", "react", "react-native", "redux", "firebase", "mern-stack"];
 const sectionGroups = ["react-community", "2021 developers"];
 const sectionHashTags = [
-  "happiness",
   "androidapps",
-  "android",
   "careers",
   "entrepreneurship",
-  "joginterviews",
+  "jobinterviews",
   "indiastudents",
   "india",
 ];
