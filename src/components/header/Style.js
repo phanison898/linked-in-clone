@@ -1,19 +1,29 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { darkSecondary } from "../../assets/Colors";
+import { darkSecondary, darkPrimary } from "../../assets/Colors";
 
 export default makeStyles((theme) => ({
   header: {
     width: "100%",
     height: "100%",
     display: "flex",
-    padding: "0 13vw",
-    [theme.breakpoints.down("sm")]: {
-      padding: "0 5vh",
-    },
-    [theme.breakpoints.down("xs")]: {
-      padding: 0,
-    },
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 0,
+  },
+  header__container: {
+    minWidth: 1150,
+    maxWidth: 1150,
+    [theme.breakpoints.down("md")]: {
+      minWidth: 940,
+      maxWidth: 940,
+    },
+    [theme.breakpoints.down("sm")]: {
+      minWidth: "100%",
+    },
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   header__logo: {
     flex: 4,
@@ -69,12 +79,20 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0 10px",
     "& > div": {
       flex: 1,
+      height: "85%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      "&:hover": {
+        backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
+        borderRadius: 2,
+      },
     },
-    "& > div:nth-child(7)": {
-      borderLeft: "1px solid lightgrey",
+    "& > div:nth-child(6)": {
+      borderLeft: `1px solid ${theme.palette.type === "dark" ? darkPrimary : "lightgrey"}`,
+      borderRight: `1px solid ${theme.palette.type === "dark" ? darkPrimary : "lightgrey"}`,
     },
     [theme.breakpoints.down("xs")]: {
       display: "none",

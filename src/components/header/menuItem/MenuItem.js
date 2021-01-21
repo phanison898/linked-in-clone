@@ -3,10 +3,10 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { Hidden } from "@material-ui/core";
 import Style from "./Style";
 
-const MenuItem = ({ Icon, title, arrow, onClick, badge }) => {
+const MenuItem = ({ Icon, title, arrow }) => {
   const classes = Style();
   return (
-    <div className={classes.menuItem} onClick={onClick}>
+    <div className={classes.menuItem}>
       {Icon}
       <Hidden mdDown>
         <div className={classes.title}>

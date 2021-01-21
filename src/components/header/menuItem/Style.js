@@ -5,23 +5,15 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "0 5px",
-    color: theme.palette.type === "dark" ? "grey" : "#6e6e6e",
+    color: theme.palette.type === "dark" ? "lightgrey" : "#6e6e6e",
     cursor: "pointer",
-    transition: "all 0.5s ease",
+    transition: "all 0.35s ease",
     "& > .MuiSvgIcon-root": {
-      [theme.breakpoints.down("sm")]: {
-        fontSize: 28,
-      },
-      fontSize: 30,
+      fontSize: 24,
     },
     "& > .MuiAvatar-root": {
-      [theme.breakpoints.down("sm")]: {
-        width: 24,
-        height: 24,
-      },
-      width: 25,
-      height: 25,
+      width: 24,
+      height: 24,
     },
     "&:hover": {
       color: "black",
@@ -38,6 +30,9 @@ export default makeStyles((theme) => ({
     },
     "& > .MuiSvgIcon-root": {
       fontSize: 20,
+      padding: 0,
+      margin: -5,
+      marginLeft: 0,
     },
   },
 }));
