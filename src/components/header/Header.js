@@ -61,7 +61,7 @@ const Header = () => {
           <MenuItem
             key={"mode"}
             Icon={mode ? <Brightness4Icon /> : <BrightnessHighIcon />}
-            title={mode ? "Dark" : "Light"}
+            title={"Theme"}
             onClick={() => dispatch(ChangeTheme())}
           />
         </div>
