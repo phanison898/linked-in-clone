@@ -9,32 +9,35 @@
 
 ### About
 
-Building linked-in application clone using **`React`** and **`Firebase`**. The build covers the core functionality (`login, posting images & videos`) of original linked-in application. The build is designed with fully responsiveness, makes this linked-in clone fits in all different kind of devices perfectly. Added original linked-in's missing feature **`Dark Mode`** as well
+Linked-In web application clone using **`React`** , **`Firebase`** , **`Material-UI`**
+
+### Specifications
+
+- Precisely designed UI, replicates the original Linked-In's UI. Thanks to **`Material-UI`**
+- **`Functionality`** : Login with firebase google popup, posting images, videos and ofcourse plain text
+- Fully responsive design. Suites perfectly for all size devices
+- Feels like native app in mobile view
+- Added **`DARK MODE`** which was missing in original linked-in's web app
 
 ---
 
 ### Preview
 
-- **Normal Mode**
-  <p>
-    <img width="75%" src="https://phanison898.github.io/images/other/linked-in-clone.png" />
-  </p>
-
-- **Dark Mode**
-    <p>
-       <img width="75%" src="https://phanison898.github.io/images/other/linked-in-clone-dark.png" />
-    </p>
-
+<p>
+    <img width="80%" src="https://media.giphy.com/media/nZB9TEuMW591ueQDPJ/giphy.gif" />
+</p>
 ---
 
 ### Tech used
 
 - React
-- React hooks
+- React Hooks
 - Redux
+- Redux-Thunk
 - Material UI
 - Flexbox
-- React flip-move
+- React Flip-Move
+- Lottie-Web
 - Firebase
   - Google authentication
   - Firestore
@@ -45,7 +48,7 @@ Building linked-in application clone using **`React`** and **`Firebase`**. The b
 
 ### Pre-requisites
 
-1. Install **`NODE`** (if not already installed)
+1. Install **`NODE`** (if not already been installed)
 2. Setup **`FIREBASE`** project and get the api config values
 
 ---
@@ -79,6 +82,7 @@ Building linked-in application clone using **`React`** and **`Firebase`**. The b
    npm start
    ```
 6. Happy learning 😊
+7. Please give me a ⭐ if you feel this build is helpful, it'll boost my confidence alot
 
 ---
 
