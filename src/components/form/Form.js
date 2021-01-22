@@ -108,7 +108,7 @@ const Form = () => {
     const fileSize = inputFile.size / (1024 * 1024);
 
     const acceptedImageFormats = ["png", "jpg", "jpeg", "gif"];
-    const acceptedVideoFormats = ["mp4", "mkv", "3gp", "av", "webm"];
+    const acceptedVideoFormats = ["mp4", "mkv", "3gp", "avi", "webm"];
 
     switch (type) {
       case "video":
@@ -203,7 +203,6 @@ const Form = () => {
           <input
             id="upload-image"
             type="file"
-            //accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
             accept="image/*"
             hidden
             onChange={(e) => imageUploadHandler(e, "image")}
@@ -211,7 +210,6 @@ const Form = () => {
           <input
             id="upload-video"
             type="file"
-            //accept="image/*,image/heif,image/heic,video/*,video/mp4,video/x-m4v,video/x-matroska,.mkv"
             accept="video/*"
             hidden
             onChange={(e) => imageUploadHandler(e, "video")}

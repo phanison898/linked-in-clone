@@ -70,7 +70,7 @@ const Post = forwardRef(
           <div className={classes.header__info}>
             <h4>{capitalize(username)}</h4>
             <p>
-              <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} />
+              <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()} units="minute" />
             </p>
           </div>
           <MoreHorizOutlinedIcon />

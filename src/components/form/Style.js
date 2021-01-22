@@ -94,7 +94,7 @@ export default makeStyles((theme) => ({
     borderRadius: 10,
     backgroundColor: theme.palette.type === "dark" ? darkSecondary : "lightgrey",
     "& > *": {
-      backgroundColor: "#008edb",
+      backgroundColor: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue,
     },
   },
 
