@@ -1,8 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles(() => ({
+export default makeStyles((theme) => ({
   card: {
     width: 360,
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      border: 0,
+      borderRadius: 0,
+      boxShadow: "none",
+    },
     height: 500,
     display: "flex",
     flexDirection: "column",
