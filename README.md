@@ -17,7 +17,7 @@ Linked-In web application clone using **`React`** , **`Firebase`** , **`Material
 - **`Functionality`** : Login with firebase google popup, posting images, videos and ofcourse plain text
 - Fully responsive design. Suites perfectly for all size devices
 - Feels like native app in mobile view
-- Added **`DARK MODE`** which was missing in original linked-in's web app
+- **`DARK MODE`** toggle feature
 
 ---
 
