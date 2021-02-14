@@ -9,7 +9,7 @@
 
 ### About
 
-Linked-In web application clone using **`React`** , **`Firebase`** , **`Material-UI`**
+Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Material-UI`** with full responsiveness by including core functionalities like login and upload posts
 
 ### Specifications
 
@@ -36,7 +36,6 @@ Linked-In web application clone using **`React`** , **`Firebase`** , **`Material
 - Redux-Thunk
 - Material UI
 - Flexbox
-- React Flip-Move
 - Lottie-Web
 - Firebase
   - Google authentication
@@ -82,7 +81,7 @@ Linked-In web application clone using **`React`** , **`Firebase`** , **`Material
    npm start
    ```
 6. Happy learning 😊
-7. Please give me a ⭐ if you feel this build is helpful, it'll boost my confidence alot
+7. Don't forget to star ( ⭐ ) the repo
 
 ---
 
