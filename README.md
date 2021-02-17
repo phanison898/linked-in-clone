@@ -24,7 +24,7 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
 ### Preview
 
 <p>
-    <img width="80%" src="https://media.giphy.com/media/nZB9TEuMW591ueQDPJ/giphy.gif" />
+    <img width="80%" src="https://media.giphy.com/media/l5q8tUAH5vtcL7QzAk/giphy.gif" />
 </p>
 ---
 
