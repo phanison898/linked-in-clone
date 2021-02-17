@@ -81,7 +81,7 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
    npm start
    ```
 6. Happy learning 😊
-7. Don't forget to star ( ⭐ ) the repo
+7. Please consider to star ( ⭐ ) this repo. It'll boost my confidence
 
 ---
 
