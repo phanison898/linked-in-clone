@@ -11,6 +11,10 @@
 
 Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Material-UI`** with full responsiveness by including core functionalities like login and upload posts
 
+🔌 **Live Website Link** : <a href="https://phanison-linkedin-clone.web.app/">https://phanison-linkedin-clone.web.app/</a>
+
+---
+
 ### 📜 Specifications
 
 - Precisely designed UI, replicates the original Linked-In's UI. Thanks to **`Material-UI`**
