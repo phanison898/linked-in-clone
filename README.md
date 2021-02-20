@@ -7,11 +7,11 @@
 
 ---
 
-### About
+### 🚥 About
 
 Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Material-UI`** with full responsiveness by including core functionalities like login and upload posts
 
-### Specifications
+### 📜 Specifications
 
 - Precisely designed UI, replicates the original Linked-In's UI. Thanks to **`Material-UI`**
 - **`Functionality`** : Login with firebase google popup, posting images, videos and ofcourse plain text
@@ -21,14 +21,18 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
 
 ---
 
-### Preview
+### 🎥 Preview
 
-<p>
-    <img width="80%" src="https://media.giphy.com/media/l5q8tUAH5vtcL7QzAk/giphy.gif" />
+- 🖥 **Desktop view** : <p style="display:flex; justify-content:center; margin:30px 0px">
+  <img width="80%" src="https://media.giphy.com/media/l5q8tUAH5vtcL7QzAk/giphy.gif" />
+  </p>
+- 📱 **Mobile view** : <p style="display:flex; justify-content:center; margin:30px 0px">
+<img width="40%" src="https://media.giphy.com/media/1wmUmYYmxnIZPVLVua/giphy.gif" />
 </p>
+
 ---
 
-### Tech used
+### 🛠 Tech used
 
 - React
 - React Hooks
@@ -45,14 +49,14 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
 
 ---
 
-### Pre-requisites
+### ⛔ Pre-requisites
 
 1. Install **`NODE`** (if not already been installed)
 2. Setup **`FIREBASE`** project and get the api config values
 
 ---
 
-### How to make use of this build?
+### ✅ How to make use of this build?
 
 1. Clone the repository
    ```bash
@@ -84,7 +88,7 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
 
 ---
 
-### Feel free to reach out to me
+### ☎ Feel free to reach out to me
 
 [![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/phanison225/)
 [![Instagram](https://img.shields.io/badge/-Instagram-ff69bf?style=flat-square&logo=Instagram&logoColor=white)](https://www.instagram.com/phanison225/)
