@@ -28,10 +28,10 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
 ### 🎥 Preview
 
 - 🖥 **Desktop view** : <p align="center">
-  <img width="80%" src="https://media.giphy.com/media/l5q8tUAH5vtcL7QzAk/giphy.gif" />
+  <img width="100%" src="https://media.giphy.com/media/l5q8tUAH5vtcL7QzAk/giphy.gif" />
   </p>
 - 📱 **Mobile view** : <p align="center">
-  <img width="40%" src="https://media.giphy.com/media/389WIo3BUoETnzm4dY/giphy.gif" />
+  <img width="50%" src="https://media.giphy.com/media/389WIo3BUoETnzm4dY/giphy.gif" />
   </p>
 
 ---
