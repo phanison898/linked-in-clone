@@ -31,7 +31,7 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
   <img width="100%" src="https://media.giphy.com/media/l5q8tUAH5vtcL7QzAk/giphy.gif" />
   </p>
 - 📱 **Mobile view** : <p align="center">
-  <img width="50%" src="https://media.giphy.com/media/389WIo3BUoETnzm4dY/giphy.gif" />
+  <img width="35%" src="https://media.giphy.com/media/LpKfywQ9YZUwAjYeJ9/giphy.gif" />
   </p>
 
 ---
