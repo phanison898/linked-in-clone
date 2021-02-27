@@ -18,7 +18,7 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
 ### 📜 Specifications
 
 - Precisely designed UI, replicates the original Linked-In's UI. Thanks to **`Material-UI`**
-- **`Functionality`** : Login with firebase google popup, posting images, videos and ofcourse plain text
+- Functionalities : Login with firebase google popup, posting images, videos and ofcourse plain text
 - Fully responsive design. Suites perfectly for all size devices
 - UI feels much good in mobile view
 - **`DARK MODE`** toggle feature
