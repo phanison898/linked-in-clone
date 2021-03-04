@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import FlipMove from "react-flip-move";
 import Post from "./post/Post";
+import Animation from "../animations/Animation";
+import Loading from "../../assets/images/loading-dots.json";
 import db from "../../firebase";
 
 const Posts = () => {
@@ -17,19 +19,23 @@ const Posts = () => {
 
   return (
     <div className={classes.posts}>
-      <FlipMove style={{ width: "100%" }}>
-        {Array.from(posts).map((post) => (
-          <Post
-            key={post.id}
-            profile={post.data.profile}
-            username={post.data.username}
-            timestamp={post.data.timestamp}
-            description={post.data.description}
-            fileType={post.data.fileType}
-            fileData={post.data.fileData}
-          />
-        ))}
-      </FlipMove>
+      {Array.from(posts).length === 0 ? (
+        <Animation src={Loading} />
+      ) : (
+        <FlipMove style={{ width: "100%" }}>
+          {Array.from(posts).map((post) => (
+            <Post
+              key={post.id}
+              profile={post.data.profile}
+              username={post.data.username}
+              timestamp={post.data.timestamp}
+              description={post.data.description}
+              fileType={post.data.fileType}
+              fileData={post.data.fileData}
+            />
+          ))}
+        </FlipMove>
+      )}
     </div>
   );
 };

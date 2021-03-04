@@ -14,7 +14,7 @@ export default makeStyles((theme) => ({
 
   app__body: {
     display: "flex",
-    height: "auto",
+    minHeight: "calc(100vh - 50px)",
     justifyContent: "center",
     paddingTop: 50,
     paddingBottom: 50,
