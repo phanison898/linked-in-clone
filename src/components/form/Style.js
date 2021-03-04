@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     padding: "0 10px",
-    borderRadius: 7,
+    borderRadius: 8,
     [theme.breakpoints.down("xs")]: {
       borderRadius: 0,
       border: 0,
