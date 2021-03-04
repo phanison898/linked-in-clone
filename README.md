@@ -56,7 +56,7 @@ Redesigned Linked-In web application using **`React`** , **`Firebase`** , **`Mat
 ### ⛔ Pre-requisites
 
 1. Install **`NODE`** (if not already been installed)
-2. Setup **`FIREBASE`** project and get the api config values
+2. Setup **`FIREBASE`** project and get the api config values. Checkout <a href="https://firebase.google.com/docs/web/setup?authuser=0">how to setup firebase project?</a>
 
 ---
 
