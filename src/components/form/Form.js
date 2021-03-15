@@ -14,6 +14,7 @@ import { v4 as uuid } from "uuid";
 import db, { storage } from "../../firebase";
 import { LinkedInBlue, LinkedInLightBlue } from "../../assets/Colors";
 import Styles from "./Style";
+import swal from "@sweetalert/with-react";
 
 const Form = () => {
   const classes = Styles();
@@ -81,7 +82,7 @@ const Form = () => {
       // if not file input provided
       uploadToFirebaseDB(uploadData.file.data);
     } else {
-      alert("please enter something..");
+      swal("😕 Input field can not be empty");
     }
   };
 
@@ -113,30 +114,30 @@ const Form = () => {
     switch (type) {
       case "video":
         if (!acceptedVideoFormats.some((format) => format.includes(inputFileExec))) {
-          alert(" Please select video format of mp4 , mkv , av ");
+          swal("🔴 Please select video format of mp4 , mkv , av ");
           e.target.value = "";
           return;
         }
         if (fileSize > 25) {
-          alert("Select a video less than 25MB size");
+          swal("🔴 Please select a video less than 25MB file size");
           e.target.value = "";
           return;
         }
         break;
       case "image":
         if (!acceptedImageFormats.some((format) => format.includes(inputFileExec))) {
-          alert(" Please select image format of png , jpg , jpeg , gif ");
+          swal("🔴 Please select image format of png , jpg , jpeg , gif ");
           e.target.value = "";
           return;
         }
         if (fileSize > 3) {
-          alert("select an image less than 3MB size");
+          swal("🔴 Please select an image less than 3MB file size");
           e.target.value = "";
           return;
         }
         break;
       default:
-        alert("Invalid file format...");
+        swal("😮 OOPS...!!! Invalid file format");
         e.target.value = "";
         return;
     }
