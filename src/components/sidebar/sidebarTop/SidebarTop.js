@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Paper, Avatar, Divider } from "@material-ui/core";
 import LabelImportantIcon from "@material-ui/icons/LabelImportant";
 import Style from "./Style";
@@ -23,7 +24,7 @@ const SidebarTop = () => {
           backgroundImage: `url("https://tandsgo.com/wp-content/uploads/2020/02/Abstract-blue-and-orange-pattern.jpg")`,
         }}
       ></div>
-      <Avatar src={photoURL} />
+      <Avatar src={photoURL} component={Link} to="/profile" />
       <h4>{displayName}</h4>
       <div className={classes.stats}>
         <Divider />

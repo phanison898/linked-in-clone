@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Chip, Paper, LinearProgress } from "@material-ui/core";
 import { useTheme } from "@material-ui/core";
 import imageCompression from "browser-image-compression";
@@ -259,10 +260,12 @@ const Form = () => {
           <AssignmentTurnedInIcon style={{ color: "#cea2cc" }} />
           <h4>Goal</h4>
         </div>
-        <div className={classes.media__options}>
-          <CalendarViewDayIcon style={{ color: "#f5987e" }} />
-          <h4>Write article</h4>
-        </div>
+        <Link to="/write">
+          <div className={classes.media__options}>
+            <CalendarViewDayIcon style={{ color: "#f5987e" }} />
+            <h4>Write article</h4>
+          </div>
+        </Link>
       </div>
     </Paper>
   );
