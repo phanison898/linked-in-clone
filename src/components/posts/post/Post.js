@@ -26,6 +26,12 @@ const Post = forwardRef(
       return _string.charAt(0).toUpperCase() + _string.slice(1);
     };
 
+    const postImageRef = React.useRef(null);
+
+    const PostImage = React.forwardRef((props, ref) => {
+      return <img src={props.src} alt="post" ref={ref} />;
+    });
+
     useEffect(() => {
       setLikesCount(Math.floor(Math.random() * 1000) + 1);
       setCommentsCount(Math.floor(Math.random() * 10) + 1);
@@ -82,7 +88,8 @@ const Post = forwardRef(
           {fileData && (
             <div className={classes.body__image}>
               {fileType === "image" ? (
-                <img src={fileData} alt="post" />
+                // <img src={fileData} alt="post" />
+                <PostImage ref={postImageRef} src={fileData} />
               ) : (
                 <ReactPlayer url={fileData} controls={true} style={{ height: "auto !important" }} />
               )}

@@ -5,7 +5,6 @@ import { useTheme } from "@material-ui/core";
 import imageCompression from "browser-image-compression";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import AssignmentTurnedInIcon from "@material-ui/icons/AssignmentTurnedIn";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 import PhotoSizeSelectActualIcon from "@material-ui/icons/PhotoSizeSelectActual";
 import CreateIcon from "@material-ui/icons/Create";
@@ -15,6 +14,9 @@ import db, { storage } from "../../firebase";
 import { LinkedInBlue, LinkedInLightBlue } from "../../assets/Colors";
 import Styles from "./Style";
 import swal from "@sweetalert/with-react";
+import InsertLinkIcon from "@material-ui/icons/InsertLink";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import FileType from "file-type/browser";
 
 const Form = () => {
   const classes = Styles();
@@ -31,6 +33,8 @@ const Form = () => {
   });
 
   const [progress, setProgress] = useState("");
+  const [openURL, setOpenURL] = useState(false);
+  const [URL, setURL] = useState("");
 
   const uploadToFirebaseDB = (fileData) => {
     // uploading to collection called posts
@@ -40,18 +44,18 @@ const Form = () => {
         username: displayName,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         description: uploadData.description,
-        fileType: uploadData.file.type,
+        fileType: fileData === URL ? "image" : uploadData.file.type,
         fileName: uploadData.file.name,
         fileData: fileData,
       })
       .then(() => resetState());
   };
 
-  const handleSubmitButton = (e) => {
+  const handleSubmitButton = async (e) => {
     e.preventDefault();
 
     // verify atleast one of the input fields are not empyt
-    if (uploadData.description || uploadData.file.data) {
+    if (uploadData.description || uploadData.file.data || URL) {
       // if file input is true...upload the file to Fire-Store
       if (uploadData.file.data) {
         const id = uuid();
@@ -79,10 +83,28 @@ const Form = () => {
         // do not go further..
         return;
       }
-      // if not file input provided
-      uploadToFirebaseDB(uploadData.file.data);
+      if (URL !== "") {
+        if (URL.startsWith("data")) {
+          swal("NON-SECURE FILE URL : Please don't use URL starts with 'data:'...");
+          setURL("");
+        } else {
+          try {
+            const response = await fetch(URL);
+            const fileType = await FileType.fromStream(response.body);
+            console.log(fileType);
+            uploadToFirebaseDB(URL);
+          } catch (error) {
+            console.log(error);
+            swal("INVALID FILE URL ..!!! Please enter image url only");
+            setURL("");
+          }
+        }
+      } else {
+        // if not file input provided
+        uploadToFirebaseDB(uploadData.file.data);
+      }
     } else {
-      swal("😕 Input field can not be empty");
+      swal("😕 Please enter some text or attach an image / video / url");
     }
   };
 
@@ -189,6 +211,28 @@ const Form = () => {
       },
     });
     setProgress("");
+    setOpenURL(false);
+    setURL("");
+  };
+
+  const handleURL = (e) => {
+    setURL(e.target.value);
+  };
+
+  const toggleURL_Tab = () => {
+    if (URL === "") {
+      setOpenURL(!openURL);
+    } else {
+      setOpenURL(true);
+    }
+  };
+
+  const closeURL_Tab = () => {
+    if (URL === "") {
+      setOpenURL(false);
+    } else {
+      setOpenURL(true);
+    }
   };
 
   return (
@@ -206,19 +250,25 @@ const Form = () => {
             type="file"
             accept="image/*"
             hidden
-            onChange={(e) => imageUploadHandler(e, "image")}
+            onChange={(e) => {
+              imageUploadHandler(e, "image");
+              setOpenURL(false);
+            }}
           />
           <input
             id="upload-video"
             type="file"
             accept="video/*"
             hidden
-            onChange={(e) => imageUploadHandler(e, "video")}
+            onChange={(e) => {
+              imageUploadHandler(e, "video");
+              setOpenURL(false);
+            }}
           />
           <button type="submit">Post</button>
         </form>
       </div>
-      {uploadData.file.name && !progress && (
+      {!openURL && !progress && uploadData.file.name && (
         <div className={classes.selectedFile}>
           <Chip
             color="primary"
@@ -235,7 +285,7 @@ const Form = () => {
           />
         </div>
       )}
-      {progress ? (
+      {!openURL && progress ? (
         <div className={classes.uploading}>
           <LinearProgress variant="determinate" value={progress} className={classes.progress} />
           <p>{progress} %</p>
@@ -243,21 +293,45 @@ const Form = () => {
       ) : (
         ""
       )}
+      {openURL && (
+        <div className={classes.pasteURL_Input}>
+          <InsertLinkIcon />
+          <input
+            placeholder="Paste URL of an image or video"
+            value={URL}
+            onChange={(e) => setURL(e.target.value)}
+          />
+          {URL !== "" && (
+            <HighlightOffIcon
+              style={{ color: "orange", fontSize: 16 }}
+              onClick={() => setURL("")}
+            />
+          )}
+        </div>
+      )}
 
       <div className={classes.upload__media}>
-        <label htmlFor="upload-image" className={classes.media__options}>
+        <label
+          htmlFor={URL === "" ? "upload-image" : ""}
+          onClick={closeURL_Tab}
+          className={classes.media__options}
+        >
           <PhotoSizeSelectActualIcon
             style={{ color: theme.palette.type === "dark" ? LinkedInLightBlue : LinkedInBlue }}
           />
           <h4>Photo</h4>
         </label>
-        <label htmlFor="upload-video" className={classes.media__options}>
+        <label
+          htmlFor={URL === "" ? "upload-video" : ""}
+          onClick={closeURL_Tab}
+          className={classes.media__options}
+        >
           <YouTubeIcon style={{ color: "orange" }} />
           <h4>Video</h4>
         </label>
-        <div className={classes.media__options}>
-          <AssignmentTurnedInIcon style={{ color: "#cea2cc" }} />
-          <h4>Goal</h4>
+        <div className={classes.media__options} onClick={toggleURL_Tab}>
+          <InsertLinkIcon style={{ color: "#e88ee4", fontSize: 30 }} />
+          <h4>URL</h4>
         </div>
         <div className={classes.media__options}>
           <CalendarViewDayIcon style={{ color: "#f5987e" }} />
