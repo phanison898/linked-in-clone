@@ -116,12 +116,10 @@ const Form = () => {
     setURL("");
   };
 
-  const handleURL = (e) => {
-    setURL(e.target.value);
-  };
-
   const toggleURL_Tab = () => {
-    if (URL === "") {
+    if (uploadData.file.data !== "") {
+      setOpenURL(false);
+    } else if (URL === "") {
       setOpenURL(!openURL);
     } else {
       setOpenURL(true);
