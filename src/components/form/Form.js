@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Chip, Paper, LinearProgress } from "@material-ui/core";
 import { useTheme } from "@material-ui/core";
-import imageCompression from "browser-image-compression";
 import VideocamRoundedIcon from "@material-ui/icons/VideocamRounded";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
@@ -17,6 +16,7 @@ import swal from "@sweetalert/with-react";
 import InsertLinkIcon from "@material-ui/icons/InsertLink";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import FileType from "file-type/browser";
+import { imageUploadHandler } from "./form.utils";
 
 const Form = () => {
   const classes = Styles();
@@ -85,120 +85,21 @@ const Form = () => {
       }
       if (URL !== "") {
         if (URL.startsWith("data")) {
-          swal("NON-SECURE FILE URL : Please don't use URL starts with 'data:'...");
+          swal("DATA-URL format is not allowed. Please use different image url");
+          setURL("");
+        } else if (URL.includes("youtu.be")) {
+          swal("Youtube video URL's not allowed. Please use different image url");
           setURL("");
         } else {
-          try {
-            const response = await fetch(URL);
-            const fileType = await FileType.fromStream(response.body);
-            console.log(fileType);
-            uploadToFirebaseDB(URL);
-          } catch (error) {
-            console.log(error);
-            swal("INVALID FILE URL ..!!! Please enter image url only");
-            setURL("");
-          }
+          uploadToFirebaseDB(URL);
         }
       } else {
         // if not file input provided
         uploadToFirebaseDB(uploadData.file.data);
       }
     } else {
-      swal("😕 Please enter some text or attach an image / video / url");
+      swal("😕 Please enter some text or attach an image / video / image-url");
     }
-  };
-
-  // if file name is too long.. compress it
-  const fileNameCompressor = (str, limit) => {
-    let fileName = str;
-    const arr = str.split(".");
-    const name = arr[0];
-    const ext = arr[arr.length - 1];
-
-    if (name.length > limit) {
-      fileName = name.substring(0, limit).trim() + "... ." + ext;
-    }
-    return fileName;
-  };
-
-  const imageUploadHandler = async (e, type) => {
-    const inputFile = e.target.files[0];
-    const _inputFile = inputFile.type.split("/");
-    const inputFileType = _inputFile[0];
-    const inputFileExec = _inputFile[1];
-    const inputFileName = fileNameCompressor(inputFile.name, 20);
-
-    const fileSize = inputFile.size / (1024 * 1024);
-
-    const acceptedImageFormats = ["png", "jpg", "jpeg", "gif"];
-    const acceptedVideoFormats = ["mp4", "mkv", "3gp", "avi", "webm"];
-
-    switch (type) {
-      case "video":
-        if (!acceptedVideoFormats.some((format) => format.includes(inputFileExec))) {
-          swal("🔴 Please select video format of mp4 , mkv , av ");
-          e.target.value = "";
-          return;
-        }
-        if (fileSize > 25) {
-          swal("🔴 Please select a video less than 25MB file size");
-          e.target.value = "";
-          return;
-        }
-        break;
-      case "image":
-        if (!acceptedImageFormats.some((format) => format.includes(inputFileExec))) {
-          swal("🔴 Please select image format of png , jpg , jpeg , gif ");
-          e.target.value = "";
-          return;
-        }
-        if (fileSize > 3) {
-          swal("🔴 Please select an image less than 3MB file size");
-          e.target.value = "";
-          return;
-        }
-        break;
-      default:
-        swal("😮 OOPS...!!! Invalid file format");
-        e.target.value = "";
-        return;
-    }
-
-    let compressedInputFile = inputFile;
-    if (inputFileType === "image") {
-      //compression algorithm
-      const compressionOptions = {
-        maxSizeMB: 1,
-        maxWidthOrHeight: 1920,
-        useWebWorker: true,
-      };
-
-      try {
-        compressedInputFile = await imageCompression(inputFile, compressionOptions);
-      } catch (error) {
-        alert(error);
-      }
-    }
-
-    let inputFileDataBase64;
-    const file = new FileReader();
-    if (compressedInputFile) {
-      file.onloadend = (fileLoadedEvent) => {
-        inputFileDataBase64 = fileLoadedEvent.target.result;
-        setUploadData({
-          ...uploadData,
-          file: {
-            type: inputFileType,
-            name: inputFileName,
-            data: inputFileDataBase64,
-          },
-        });
-      };
-      file.readAsDataURL(compressedInputFile);
-    }
-
-    // clear the file input event value
-    e.target.value = "";
   };
 
   const resetState = () => {
@@ -251,7 +152,7 @@ const Form = () => {
             accept="image/*"
             hidden
             onChange={(e) => {
-              imageUploadHandler(e, "image");
+              imageUploadHandler(e, "image", uploadData, setUploadData);
               setOpenURL(false);
             }}
           />
@@ -261,7 +162,7 @@ const Form = () => {
             accept="video/*"
             hidden
             onChange={(e) => {
-              imageUploadHandler(e, "video");
+              imageUploadHandler(e, "video", uploadData, setUploadData);
               setOpenURL(false);
             }}
           />
@@ -297,7 +198,7 @@ const Form = () => {
         <div className={classes.pasteURL_Input}>
           <InsertLinkIcon />
           <input
-            placeholder="Paste URL of an image or video"
+            placeholder="Paste an image URL"
             value={URL}
             onChange={(e) => setURL(e.target.value)}
           />
