@@ -35,30 +35,30 @@ export const imageUploadHandler = async (e, type, uploadData, setUploadData) => 
   switch (type) {
     case "video":
       if (!ACCEPTED_VIDEO_FORMATS.some((format) => format.includes(inputFileExec))) {
-        swal("🔴 Please select video format of mp4 , mkv , av ");
+        swal("Invalid Video Format",`Please select video format of ${ACCEPTED_VIDEO_FORMATS.map(format=> format+' ')}`,"warning");
         e.target.value = "";
         return;
       }
       if (fileSize > MAX_VIDEO_UPLOAD_SIZE) {
-        swal("🔴 Please select a video less than 25MB file size");
+        swal("Video Too Large", `Please select a video less than ${MAX_VIDEO_UPLOAD_SIZE}MB file size`,"warning");
         e.target.value = "";
         return;
       }
       break;
     case "image":
       if (!ACCEPTED_IMAGE_FORMATS.some((format) => format.includes(inputFileExec))) {
-        swal("🔴 Please select image format of png , jpg , jpeg , gif ");
+        swal("Invalid Image Format",`Please select an image format of ${ACCEPTED_IMAGE_FORMATS.map(format=> format+' ')}`,"warning");
         e.target.value = "";
         return;
       }
       if (fileSize > MAX_IMAGE_UPLOAD_SIZE) {
-        swal("🔴 Please select an image less than 3MB file size");
+        swal("Image Too Large", `Please select an image less than ${MAX_IMAGE_UPLOAD_SIZE}MB file size`,"warning");
         e.target.value = "";
         return;
       }
       break;
     default:
-      swal("😮 OOPS...!!! Invalid file format");
+      swal("Invalid File Format", "warning");
       e.target.value = "";
       return;
   }

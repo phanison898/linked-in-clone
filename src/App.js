@@ -11,6 +11,7 @@ import Widgets from "./components/widgets/Widgets";
 import { LoginAction, LogoutAction } from "./store/actions/auth";
 import { auth } from "./firebase";
 import Styles from "./Style";
+import swal from "@sweetalert/with-react";
 import { LinkedInBgColor, darkPrimary } from "./assets/Colors";
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
         dispatch(LoginAction(authUser));
       } else {
         dispatch(LogoutAction());
+        {swal("Successfully Logged Out","","success")}
       }
     });
   }, []);

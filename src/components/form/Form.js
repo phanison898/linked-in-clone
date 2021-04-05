@@ -15,7 +15,6 @@ import Styles from "./Style";
 import swal from "@sweetalert/with-react";
 import InsertLinkIcon from "@material-ui/icons/InsertLink";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
-import FileType from "file-type/browser";
 import { imageUploadHandler } from "./form.utils";
 
 const Form = () => {
@@ -85,10 +84,13 @@ const Form = () => {
       }
       if (URL !== "") {
         if (URL.startsWith("data")) {
-          swal("DATA-URL format is not allowed. Please use different image url");
+          swal("Invalid Image URL", "DATA-URL format is not allowed","warning");
           setURL("");
-        } else if (URL.includes("youtu.be")) {
-          swal("Youtube video URL's not allowed. Please use different image url");
+        } else if (URL.includes("youtu.be") || URL.includes("youtube")) {
+          swal("Invalid Image URL","Youtube videos are not allowed","warning");
+          setURL("");
+        } else if (!URL.startsWith("http")) {
+          swal("Invalid Image URL","Please enter valid image url","warning");
           setURL("");
         } else {
           uploadToFirebaseDB(URL);
@@ -98,7 +100,7 @@ const Form = () => {
         uploadToFirebaseDB(uploadData.file.data);
       }
     } else {
-      swal("😕 Please enter some text or attach an image / video / image-url");
+      swal("Empty Post", "Please enter some text or attach an image / video / image-url","warning");
     }
   };
 
