@@ -35,7 +35,6 @@ const App = () => {
         dispatch(LoginAction(authUser));
       } else {
         dispatch(LogoutAction());
-        {swal("Successfully Logged Out","","success")}
       }
     });
   }, []);

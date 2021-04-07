@@ -100,7 +100,7 @@ const Form = () => {
         uploadToFirebaseDB(uploadData.file.data);
       }
     } else {
-      swal("Empty Post", "Please enter some text or attach an image / video / image-url","warning");
+      swal("Empty Post", "Please enter something","warning");
     }
   };
 
